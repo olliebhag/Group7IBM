@@ -13,6 +13,8 @@
     <style>
 
         body {
+            font-family: Verdana, sans-serif;
+            font-size: 15px;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -46,7 +48,6 @@
             margin: 10px 0;
         }
 
-
         #radiusSlider {
             width: 100%;
             margin-top: 10px;
@@ -58,15 +59,14 @@
             margin-top: 10px; /* Added margin to separate canvas and map */
         }
 
-
         .navbar {
-            width: 90vw; /* Adjusted to 90% of the viewport width */
-            max-width: 400px; /* Set a maximum width for larger screens */
-            margin: auto; /* Center the container and add margin for spacing */
+            width: 90vw;
+            max-width: 400px;
+            margin: auto;
             padding: 0px;
             background-color: lightgreen;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            text-align: center; /* Center the content */
+            text-align: center;
             border-radius: 10px;
         }
 
@@ -107,7 +107,14 @@
             font-size: 30px;
             font-style: italic;
             white-space: nowrap;
+            border: 10px;
         }
+
+        h1 {
+            border: 40px;
+            text-decoration: underline;
+        }
+
     </style>
 
     <script>
@@ -137,8 +144,8 @@
 </head>
 <body>
 <div class="phone-border">
-<h1 id="grocery">GroceryMate</h1>
-<h2> Welcome ${user.getFname()}</h2>
+<h1 id="grocery">GroceryMate<img class="icons" src="https://cdn-icons-png.freepik.com/512/8866/8866816.png"></h1>
+<h2> Welcome, ${user.getFname()}.</h2>
 
 
 <%--<c:forEach items="${goals}" var="goal">--%>
@@ -153,14 +160,14 @@
     <canvas id="canvas1" width="600" height="450"></canvas>
 </div>
 Select Radius: <input id="radiusSlider" type="range" min="10" max="300" value="100">
-    <h3>Upcoming Journeys:</h3>
+    <h3>Nearby Upcoming Journeys:</h3>
     <c:forEach items="${events}" var="event">
         <h3>${event.getDriver().getFname()} ${event.getDriver().getLname()} | ${event.getStore().getName()} </h3>
     </c:forEach>
 
     <div class="navbar">
         <a href="/"><img class="icons" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a>
-        <a href="/upcoming"><img class="icons "src="https://icons.veryicon.com/png/o/miscellaneous/face-monochrome-icon/calendar-249.png"></a>
+        <a href="/upcoming"><img class="icons" src="https://icons.veryicon.com/png/o/miscellaneous/face-monochrome-icon/calendar-249.png"></a>
         <a href="/profile"><img class="icons" src="https://static.thenounproject.com/png/2367782-200.png"></a>
     </div>
 </div>

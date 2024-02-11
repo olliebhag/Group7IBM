@@ -243,8 +243,6 @@
         top: 90px;
         object-fit: cover;
     }
-
-
 </style>
 </body>
 </html>
