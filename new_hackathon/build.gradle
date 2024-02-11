@@ -16,9 +16,15 @@ repositories {
 }
 
 dependencies {
+
+    // Spring Boot
     implementation 'org.springframework.boot:spring-boot-starter-web'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // JSP support
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:10.1.9'
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.0'
 }
 
 tasks.named('test') {
