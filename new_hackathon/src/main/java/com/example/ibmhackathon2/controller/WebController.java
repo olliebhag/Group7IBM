@@ -2,6 +2,7 @@ package com.example.ibmhackathon2.controller;
 
 import com.example.ibmhackathon2.IbmHackathon2Application;
 import com.example.ibmhackathon2.domain.Appointment;
+import com.example.ibmhackathon2.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +16,9 @@ public class WebController {
     @RequestMapping("/")
     public String start(Model model) {
         List<Appointment> appointments = new ArrayList<>();
+        User user1 = new User();
         model.addAttribute("events", IbmHackathon2Application.appointments);
+        model.addAttribute("user", IbmHackathon2Application.user1);
         return "app/home";
     }
 

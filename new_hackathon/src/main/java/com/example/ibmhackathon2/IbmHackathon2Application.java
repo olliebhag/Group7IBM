@@ -16,6 +16,7 @@ import java.util.List;
 public class IbmHackathon2Application implements CommandLineRunner {
 
     public static List<Appointment> appointments = new ArrayList<>();
+    public static User user1 = new User();
 
     public static void main(String[] args) {
         SpringApplication.run(IbmHackathon2Application.class, args);
@@ -24,13 +25,11 @@ public class IbmHackathon2Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-
         // TODO - Add courses to database here
         Store morrisons = new Store();
         Location morrisons_loc = new Location();
         morrisons_loc.setLat_long("52.619820, -1.132340");
 
-        User user1 = new User();
         user1.setFname("Ben");
         user1.setLname("Seager");
         user1.setUname(("BSeager"));
