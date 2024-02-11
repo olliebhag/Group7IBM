@@ -12,23 +12,22 @@
     <title>GroceryMate</title>
     <style>
 
-        .phone-border {
-            width: 60%;
-            padding: 20px;
-            background-color: #f0f0f0;
-            margin: 0 auto; /* Center the phone screen */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .phone-border {
+            width: 90vw; /* Adjusted to 90% of the viewport width */
+            max-width: 400px; /* Set a maximum width for larger screens */
+            margin: 20px auto; /* Center the container and add margin for spacing */
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center; /* Center the content */
         }
 
         #mapContainer {
@@ -39,12 +38,76 @@
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: auto;
             background-color: transparent;
             border: 2px solid green;
+            display: block;
+            margin: 10px 0;
         }
 
 
+        #radiusSlider {
+            width: 100%;
+            margin-top: 10px;
+        }
 
+        iframe {
+            width: 100%;
+            height: 300px; /* Adjusted the height of the map for visibility */
+            margin-top: 10px; /* Added margin to separate canvas and map */
+        }
+
+
+        .navbar {
+            width: 90vw; /* Adjusted to 90% of the viewport width */
+            max-width: 400px; /* Set a maximum width for larger screens */
+            margin: auto; /* Center the container and add margin for spacing */
+            padding: 0px;
+            background-color: lightgreen;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center; /* Center the content */
+            border-radius: 10px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .icons {
+            width: 30px;
+            height: 30px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 5px;
+            background: lightgreen;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            width: 20px;
+            height: 20px;
+            background: #fff; /* Set the thumb color */
+            border: 2px solid lightgreen; /* Set the thumb border color */
+            border-radius: 50%;
+            cursor: pointer;
+            -webkit-appearance: none;
+        }
+
+        #grocery {
+            font-family: Verdana, sans-serif;
+            color: #9ae799;
+            font-size: 30px;
+            font-style: italic;
+            white-space: nowrap;
+        }
     </style>
 
     <script>
@@ -74,12 +137,8 @@
 </head>
 <body>
 <div class="phone-border">
-<h1> Grocery Mate </h1>
-<h2> Welcome  </h2>
-
-<c:forEach items="${events}" var="event">
-    <h3>${event.getDriver()}</h3>
-</c:forEach>
+<h1 id="grocery">GroceryMate</h1>
+<h2> Welcome ${user.getFname()}</h2>
 
 
 <%--<c:forEach items="${goals}" var="goal">--%>
@@ -94,6 +153,24 @@
     <canvas id="canvas1" width="600" height="450"></canvas>
 </div>
 Select Radius: <input id="radiusSlider" type="range" min="10" max="300" value="100">
+    <h3>Upcoming Journeys:</h3>
+    <c:forEach items="${events}" var="event">
+        <h3>${event.getDriver().getFname()} ${event.getDriver().getLname()} | ${event.getStore().getName()} </h3>
+    </c:forEach>
+
+    <div class="navbar">
+        <a href="/"><img class="icons" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a>
+        <a href="/upcoming"><img class="icons "src="https://icons.veryicon.com/png/o/miscellaneous/face-monochrome-icon/calendar-249.png"></a>
+        <a href="/profile"><img class="icons" src="https://static.thenounproject.com/png/2367782-200.png"></a>
+    </div>
 </div>
+
+
+<%--<nav class="group-1">--%>
+<%--    <div class="rectangle-2"></div>--%>
+<%--    <a href="#"><img class="ellipse-2" src="./website_images/Ellipse 2.png" /></a>--%>
+<%--    <a href="home_page.html"><img class="home-1" src="/Users/ben/IdeaProjects/Group7IBM/new_hackathon/src/main/webapp/WEB-INF/views/app/home_icon.jpg" /></a>--%>
+<%--    <a href="#"><img class="cart-1" src="./website_images/cart.png" /></a>--%>
+<%--</nav>--%>
 </body>
 </html>

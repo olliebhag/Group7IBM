@@ -5,7 +5,6 @@ import java.util.List;
 
 // TODO - List of vehicles, get appointments,
 public class User {
-
     private Long id;
     private String fname;
     private String lname;

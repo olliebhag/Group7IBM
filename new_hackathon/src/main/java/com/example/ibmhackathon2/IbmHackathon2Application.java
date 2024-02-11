@@ -17,6 +17,7 @@ public class IbmHackathon2Application implements CommandLineRunner {
 
     public static List<Appointment> appointments = new ArrayList<>();
     public static User user1 = new User();
+    public static User user2 = new User();
 
     public static void main(String[] args) {
         SpringApplication.run(IbmHackathon2Application.class, args);
@@ -26,9 +27,10 @@ public class IbmHackathon2Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         // TODO - Add courses to database here
-        Store morrisons = new Store();
-        Location morrisons_loc = new Location();
-        morrisons_loc.setLat_long("52.619820, -1.132340");
+        Store Tesco = new Store();
+        Tesco.setName("Tesco");
+        Location Tesco_loc = new Location();
+        Tesco_loc.setLat_long("52.619820, -1.132340");
 
         user1.setFname("Ben");
         user1.setLname("Seager");
@@ -40,11 +42,34 @@ public class IbmHackathon2Application implements CommandLineRunner {
         user1.setMale(Boolean.TRUE);
 
         Appointment appointment1 = new Appointment();
+        appointment1.setId(1);
         appointment1.setDriver(user1);
         // appointment1.setDate("11/02/2024");
-        appointment1.setStore(morrisons);
-        appointment1.setPickUp(morrisons_loc);
+        appointment1.setStore(Tesco);
+        appointment1.setPickUp(Tesco_loc);
 
         appointments.add(appointment1);
-    }
+
+        Store sainsburys = new Store();
+        sainsburys.setName("Sainsburys");
+        Location sainsburys_Loc = new Location();
+        sainsburys_Loc.setLat_long("40.7128, -74.0060");
+
+        user2.setFname("Alice");
+        user2.setLname("Johnson");
+        user2.setUname("AliceJ");
+        user2.setEmail("alicejohnson@gmail.com");
+        user2.setPassword("securepassword");
+        user2.setPhone("1234567890");
+        user2.setMale(false);
+
+        Appointment appointment2 = new Appointment();
+        appointment2.setId(2);
+        appointment2.setDriver(user2);
+        appointment2.setStore(sainsburys);
+        appointment2.setPickUp(sainsburys_Loc);
+
+        appointments.add(appointment2);
+
+        }
 }
