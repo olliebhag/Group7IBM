@@ -3,6 +3,7 @@ package com.example.ibmhackathon3.controller;
 import com.example.ibmhackathon3.IbmHackathon3Application;
 import com.example.ibmhackathon3.domain.Appointment;
 import com.example.ibmhackathon3.domain.Form;
+import com.example.ibmhackathon3.domain.User;
 import com.example.ibmhackathon3.domain.Vehicle;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -99,9 +100,14 @@ public class WebController {
     }
 
     @RequestMapping("/createVehicle")
-    public String createVehicle (Model model) {
+    public String createVehicle (@RequestParam int id, Model model) {
+        User user = IbmHackathon3Application.users.get(id);
         Vehicle car = new Vehicle();
-        model.addAttribute("car", car);
+        car.setDriver(user);
+        car.setSeats(new Random().nextInt(4) + 1);
+        car.setReg("ABC" + (new Random().nextInt(900) + 100));
+        user.addVehicle(car);
+        model.addAttribute("user", user);
         return "redirect:/profile";
     }
 }

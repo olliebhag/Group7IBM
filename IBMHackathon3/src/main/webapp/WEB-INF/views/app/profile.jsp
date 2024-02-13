@@ -54,7 +54,9 @@
                 </c:forEach>
             </div>
         </c:if>
-        <a class="eventbutton" href="/createVehicle">Add a vehicle</a>
+        <c:if test="${user.getVehicles().size() == 0}">
+            <a class="eventbutton" href="/createVehicle?id=${user.getId()}">Add a vehicle</a>
+        </c:if>
     </main>
     <c:import url="/WEB-INF/views/footer.jsp"/><!-- Links to the footer -->
 </body>

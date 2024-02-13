@@ -154,24 +154,24 @@ public class IbmHackathon3Application implements CommandLineRunner {
 		user3.setDob(new Date(1998, 5, 3));
 		user3.setMale(false);
 		user3.addPreferredPickup(52.619820, -1.532340);
-		user3.setCurrentLocation(52.619820, -1.532340);
+		user3.setCurrentLocation(52.621009, -1.1269607);
 		users.add(user3);
 
 		// Generate test stores
-		Store tesco = new Store();
-		tesco.setName("Tesco");
-		tesco.setLocation(52.619820, -1.132340);
-		tesco.setAddress("123 Fake Street");
-		tesco.setPhone("0116 123 4567");
-		tesco.setWebpage("www.tesco.com");
-		tesco.addOpeningHours("Monday", new String[] {"08:00", "20:00"});
-		tesco.addOpeningHours("Tuesday", new String[] {"08:00", "20:00"});
-		tesco.addOpeningHours("Wednesday", new String[] {"08:00", "20:00"});
-		tesco.addOpeningHours("Thursday", new String[] {"08:00", "20:00"});
-		tesco.addOpeningHours("Friday", new String[] {"08:00", "20:00"});
-		tesco.addOpeningHours("Saturday", new String[] {"08:00", "22:00"});
-		tesco.addOpeningHours("Sunday", new String[] {"10:00", "16:00"});
-		stores.add(tesco);
+		Store morrisons = new Store();
+		morrisons.setName("Morrisons");
+		morrisons.setLocation(52.619820, -1.132340);
+		morrisons.setAddress("123 Fake Street");
+		morrisons.setPhone("0116 123 4567");
+		morrisons.setWebpage("www.morrisons.com");
+		morrisons.addOpeningHours("Monday", new String[] {"08:00", "20:00"});
+		morrisons.addOpeningHours("Tuesday", new String[] {"08:00", "20:00"});
+		morrisons.addOpeningHours("Wednesday", new String[] {"08:00", "20:00"});
+		morrisons.addOpeningHours("Thursday", new String[] {"08:00", "20:00"});
+		morrisons.addOpeningHours("Friday", new String[] {"08:00", "20:00"});
+		morrisons.addOpeningHours("Saturday", new String[] {"08:00", "22:00"});
+		morrisons.addOpeningHours("Sunday", new String[] {"10:00", "16:00"});
+		stores.add(morrisons);
 
 		Store sainsburys = new Store();
 		sainsburys.setName("Sainsburys");
@@ -190,7 +190,7 @@ public class IbmHackathon3Application implements CommandLineRunner {
 
 		Store asda = new Store();
 		asda.setName("Asda");
-		asda.setLocation(51.5074, -0.1278);
+		asda.setLocation(52.6322097, -1.129045);
 		asda.setAddress("789 Fake Street");
 		asda.setPhone("0116 123 4567");
 		asda.setWebpage("www.asda.com");
@@ -209,7 +209,7 @@ public class IbmHackathon3Application implements CommandLineRunner {
 		appointment1.addParticipant(user2);
 		appointment1.addParticipant(user3);
 		appointment1.setDate(new Date(2024, 2, 18, 13, 15));
-		appointment1.setStore(tesco);
+		appointment1.setStore(morrisons);
 		appointment1.setPickUp(52.619820, -1.132340);
 		appointments.add(appointment1);
 
@@ -218,7 +218,7 @@ public class IbmHackathon3Application implements CommandLineRunner {
 		appointment2.addParticipant(user2);
 		appointment2.setDate(new Date(2024, 1, 12, 12, 15));
 		appointment2.setStore(sainsburys);
-		appointment2.setPickUp(50.619820, -2.0060);
+		appointment2.setPickUp(52.6322097, -1.129045);
 		appointments.add(appointment2);
 
 		appointments = sortAppointmentsBy(Form.Type.Distance, appointments);
