@@ -27,4 +27,19 @@ public class WebController {
         return "app/profile";
     }
     // TODO - Handle web requests (e.g. GET /, GET /appointments, POST /appointments, GET /users, POST /users)
+
+    @RequestMapping("/upcoming")
+    public String upcoming(Model model) {
+        model.addAttribute("events", IbmHackathon2Application.appointments);
+        model.addAttribute("stores", IbmHackathon2Application.stores);
+        model.addAttribute("user", IbmHackathon2Application.user1);
+        return "app/search-appointment";
+    }
+
+    @RequestMapping("/search")
+    public String stores(Model model) {
+        model.addAttribute("stores", IbmHackathon2Application.stores);
+        model.addAttribute("user", IbmHackathon2Application.user1);
+        return "app/stores";
+    }
 }

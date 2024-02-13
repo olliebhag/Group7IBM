@@ -7,13 +7,12 @@ public class Appointment {
     private long id;
 
     private User driver;
-
     private List<User> passengers;
+
     private Date date;
-
     private Location pickUp;
-
     private Store store;
+
     private String groupChatId;
 
     public long getId() {

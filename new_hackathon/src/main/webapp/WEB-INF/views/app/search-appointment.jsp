@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,5 +11,12 @@
 </head>
 <body>
 <!-- TODO - Input filters for store, pick up, timing, gender, date -->
+    <form:form action="/search" method="post">
+        <form:select path="store">
+            <c:forEach items="${stores}" var="store">
+                <form:option value="${store.id}" label="${store.name}"/>
+            </c:forEach>
+        </form:select>
+    </form:form>
 </body>
 </html>

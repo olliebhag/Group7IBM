@@ -1,0 +1,319 @@
+* {
+    --background-color: #f5f5f5;
+    --highlight-color: #a6ec99;
+    --highlight-indent-color: #709f67;
+    --highlight-hover-color: #377e22;
+    --border-map-color: #377e22;
+    --text-color: #333;
+    --text-hover-color: #000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    margin-bottom: 25%;
+    padding: 1%;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-hover-color);
+}
+
+.mapcontainer {
+    max-width: 96vw;
+    width: 96vw;
+    height: 96vw;
+    margin-inline: 2%;
+    z-index: -15;
+}
+
+.mapcontainer > * {
+    position: absolute;
+    z-index: -10;
+}
+
+iframe {
+    max-width: 96vw;
+    width: 96vw;
+    height: 96vw;
+    border: 2px solid var(--border-map-color);
+}
+
+#mapdraw {
+    max-width: 96vw;
+    width: 96vw;
+    height: 96vw;
+    pointer-events: none;
+    touch-action: none;
+    border: 2px solid var(--border-map-color);
+}
+
+#sliderlabel {
+    margin-top: auto;
+    color: var(--text-color);
+}
+
+#slider {
+    width: 80%;
+    margin: 2% auto;
+    appearance: none;
+    height: 10px;
+    background-color: var(--highlight-color);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#slider:hover {
+    opacity: 1;
+}
+
+#slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Events */
+.eventcontainer {
+    width: 96vw;
+    margin-inline: 2%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 48%); /* Adjust the column width as needed */
+    gap: 1%;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.event {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--highlight-hover-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 5%;
+    margin-bottom: 2%;
+}
+
+.event > h3 {
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.event > h3 > a {
+    background-color: var(--highlight-indent-color);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.event > ol {
+    margin-left: 5%;
+}
+
+.event > p:first-of-type {
+    margin-top: 5%;
+}
+
+.eventbutton {
+    text-align: center;
+    padding: 3%;
+    border-radius: 10px;
+    margin-bottom: 100%;
+    background-color: var(--highlight-indent-color);
+    color: var(--background-color);
+}
+
+.eventbutton:hover {
+    background-color: var(--highlight-hover-color);
+    color: var(--text-color);
+}
+
+.driverbutton {
+    text-align: center;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 10px;
+    background-color: var(--highlight-indent-color);
+    color: var(--background-color);
+}
+
+.vehicle-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.vehicle {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.shared {
+    margin-inline: 10%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.shared > * {
+    margin: 2%;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.tile {
+    background-color: var(--highlight-indent-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-inline: 5%;
+    padding: 2%;
+}
+
+.tile > ul {
+    margin-inline: 5%;
+}
+
+.distance {
+    text-align: center;
+    margin-top: 5%;
+    font-size: 2em;
+}
+
+.big {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.green {
+    color: var(--highlight-color);
+}
+
+.centered {
+    text-align: center;
+}
+
+main > h1 {
+    align-self: center;
+    text-align: center;
+    border: 1px solid var(--highlight-color);
+    border-radius: 10px;
+    padding: 2%;
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+form {
+    margin: 20px 0; /* Adjust the margin as needed */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-inline: 25%;
+}
+
+form label {
+    margin-bottom: 10px; /* Adjust the margin as needed */
+    color: var(--text-color); /* Use the green color for labels */
+}
+
+form select, form input[type="submit"] {
+    padding: 1%;
+    margin-bottom: 3%; /* Adjust the margin as needed */
+    background-color: var(--highlight-color); /* Use the green color for background */
+    color: var(--text-color); /* Use the background color for text */
+    border: 1px solid var(--highlight-hover-color); /* Use the hover color for the border */
+}
+
+form input[type="submit"]:hover {
+    background-color: var(--highlight-hover-color); /* Change background color on hover */
+    color: var(--text-color); /* Change text color on hover */
+}
+
+/* Navbar */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 90%;
+    align-items: center;
+    text-align: center;
+    padding: 3%;
+    margin-inline: 5%;
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    font-size: 1.3em;
+    border: 1px solid var(--highlight-hover-color);
+    border-radius: 0 0 10px 10px;
+}
+
+header > h1 {
+    align-self: center;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    min-width: 80%;
+    align-items: center;
+    padding: 1%;
+    margin-inline: 10%;
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+    margin-top: auto;
+    border: 1px solid var(--highlight-hover-color);
+    border-radius: 10px 10px 0 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-inline: 5%;
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+}
+
+.buttons > * {
+    font-size: 3em;
+    margin: 3%;
+}
+
+

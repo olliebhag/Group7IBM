@@ -16,6 +16,7 @@ import java.util.List;
 public class IbmHackathon2Application implements CommandLineRunner {
 
     public static List<Appointment> appointments = new ArrayList<>();
+    public static List<Store> stores = new ArrayList<>();
     public static User user1 = new User();
     public static User user2 = new User();
 
@@ -26,11 +27,12 @@ public class IbmHackathon2Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        // TODO - Add courses to database here
         Store Tesco = new Store();
+        Tesco.setId(0);
         Tesco.setName("Tesco");
         Location Tesco_loc = new Location();
         Tesco_loc.setLat_long("52.619820, -1.132340");
+        stores.add(Tesco);
 
         user1.setFname("Ben");
         user1.setLname("Seager");
@@ -51,9 +53,11 @@ public class IbmHackathon2Application implements CommandLineRunner {
         appointments.add(appointment1);
 
         Store sainsburys = new Store();
+        sainsburys.setId(1);
         sainsburys.setName("Sainsburys");
         Location sainsburys_Loc = new Location();
         sainsburys_Loc.setLat_long("40.7128, -74.0060");
+        stores.add(sainsburys);
 
         user2.setFname("Alice");
         user2.setLname("Johnson");
