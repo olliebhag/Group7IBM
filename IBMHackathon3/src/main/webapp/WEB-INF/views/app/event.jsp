@@ -24,8 +24,10 @@
             <c:if test="${event.getDriver().getId() != user.getId() && event.getParticipants().contains(user)}">
                 <a class="eventbutton" href="/leaveEvent?id=${event.getId()}&user=${user.getId()}">Leave</a>
             </c:if>
-            <c:if test="${event.getDriver().getId() != user.getId() && !event.getParticipants().contains(user)}">
-                <a class="eventbutton" href="/joinEvent?id=${event.getId()}&user=${user.getId()}">Join</a>
+            <c:if test="${seats - size >= 0}">
+                <c:if test="${event.getDriver().getId() != user.getId() && !event.getParticipants().contains(user)}">
+                    <a class="eventbutton" href="/joinEvent?id=${event.getId()}&user=${user.getId()}">Join</a>
+                </c:if>
             </c:if>
             <p><strong>Date:</strong> ${event.date()}</p>
             <p><strong>Time:</strong> ${event.time()}</p>

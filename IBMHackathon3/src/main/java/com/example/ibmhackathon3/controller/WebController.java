@@ -3,6 +3,7 @@ package com.example.ibmhackathon3.controller;
 import com.example.ibmhackathon3.IbmHackathon3Application;
 import com.example.ibmhackathon3.domain.Appointment;
 import com.example.ibmhackathon3.domain.Form;
+import com.example.ibmhackathon3.domain.Vehicle;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -64,15 +65,11 @@ public class WebController {
         model.addAttribute("user", IbmHackathon3Application.users.get(2));
         model.addAttribute("event", IbmHackathon3Application.appointments.get(id));
         model.addAttribute("stores", IbmHackathon3Application.stores);
+        model.addAttribute("seats", IbmHackathon3Application.appointments.get(id).getDriver().getVehicles().get(0).getSeats() - IbmHackathon3Application.appointments.get(id).getParticipants().size() - 1);
+        model.addAttribute("size", IbmHackathon3Application.appointments.get(id).getParticipants().size());
+
         return "app/event";
     }
-
-//    @RequestMapping("/createEvent")
-//    public String createEvent(@RequestParam int id, Model model) {
-//        model.addAttribute("user", IbmHackathon3Application.users.get(id));
-//        model.addAttribute("stores", IbmHackathon3Application.stores);
-//        return "app/createEvent";
-//    }
 
     @RequestMapping("/deleteEvent")
     public String deleteEvent (@RequestParam int id, Model model) {
@@ -82,8 +79,17 @@ public class WebController {
 
     @RequestMapping("/joinEvent")
     public String joinEvent (@RequestParam int id, @RequestParam int user, Model model) {
+        model.addAttribute("user", IbmHackathon3Application.users.get(user));
+        model.addAttribute("event", IbmHackathon3Application.appointments.get(id));
+        model.addAttribute("stores", IbmHackathon3Application.stores);
+        model.addAttribute("seats", IbmHackathon3Application.appointments.get(id).getDriver().getVehicles().get(0).getSeats() - IbmHackathon3Application.appointments.get(id).getParticipants().size() - 1);
+        model.addAttribute("size", IbmHackathon3Application.appointments.get(id).getParticipants().size());
+        if (IbmHackathon3Application.appointments.get(id).getDriver().getVehicles().get(0).getSeats() == IbmHackathon3Application.appointments.get(id).getParticipants().size() + 1) {
+            return "redirect:/";
+        }
+
         IbmHackathon3Application.appointments.get(id).addParticipant(IbmHackathon3Application.users.get(user));
-        return "redirect:/";
+        return "redirect:/event?id=" + id;
     }
 
     @RequestMapping("/leaveEvent")
@@ -94,7 +100,8 @@ public class WebController {
 
     @RequestMapping("/createVehicle")
     public String createVehicle (Model model) {
-        // TODO - Add vehicle creation
-        return "redirect:/";
+        Vehicle car = new Vehicle();
+        model.addAttribute("car", car);
+        return "redirect:/profile";
     }
 }

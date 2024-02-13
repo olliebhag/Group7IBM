@@ -127,7 +127,7 @@ public class IbmHackathon3Application implements CommandLineRunner {
 		Vehicle car = new Vehicle();
 		car.setReg("WG56 1PA");
 		car.setDriver(user1);
-		car.setSeats(3);
+		car.setSeats(2);
 		car.setLicense("ABC123");
 		car.setStars(5);
 
