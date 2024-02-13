@@ -56,7 +56,7 @@ public class GeoLocation {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         double d = R * c;
         // Wonky maths
-        double output = (double) Math.floor(d / 1000f) / 100f;
+        double output = (double) Math.floor(d / 10f) / 100;
         return output;
     }
 }
